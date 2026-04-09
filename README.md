@@ -12,7 +12,7 @@ AutoDeploymentPipeline
 │   │   ├── docker_build_push.yaml
 │   │   ├── k8s_deploy.yaml
 |   └── README.md
-├── Decker/
+├── Docker/
 |   ├── app/
 │   |   ├── app.py
 │   |   ├── requirements.txt
@@ -25,7 +25,7 @@ AutoDeploymentPipeline
 └── README.md
 ```
 - `ansible/`: Contains Ansible playbooks for automating Docker image build/push and Kubernetes deployment.
-- `app/`: Contains the sample web application code, Dockerfile, and requirements.
+- `Docker/app/`: Contains the sample web application code, Dockerfile, and requirements.
 - `k8s/`: Contains Kubernetes manifests for deploying the containerized application.
 - `README.md`: Project overview and setup instructions.
 
@@ -38,14 +38,14 @@ Before you begin, ensure you have the following installed on your local machine:
 - Ansible
 - kubectl
 ## General Notes:
-- ${dockerhub-username}: is your/youe ORG Docker repos.
-you may find it in:
+- `${dockerhub-username}`: is your/your ORG Docker repos.
+You may find it in:
 ```bash
-cd ~/Git/AutoDeploymentPipeline/ansible/playbooks/docker_build_push.yaml
-cd ~/Git/AutoDeploymentPipeline/ansible/playbooks/k8s_deploy.yaml
-cd ~/Git/AutoDeploymentPipeline/k8s/deployment.yaml
+ansible/playbooks/docker_build_push.yaml
+ansible/playbooks/k8s_deploy.yaml
+k8s/deployment.yaml
 ```
-- Detailed instaltion docmentation for (Docker, )
+- Detailed installation documentation for each tool can be found in the respective subdirectory READMEs.
 
 ## General Instructions
 
@@ -69,25 +69,25 @@ kubectl config use-context minikube
 ### Step 3: Build and Push Docker Image
 Navigate to the app/ directory and build the Docker image:
 ```bash
-cd ~/Git/AutoDeploymentPipeline/Docker/app
+cd Docker/app
 docker build -t ${dockerhub-username}/myapp:latest .
 docker push ${dockerhub-username}/myapp:latest
 ```
 ### Step 4: Deploy the Application to Kubernetes
 Apply the Kubernetes manifests located in the k8s/ directory:
 ```bash
-cd ~/Git/AutoDeploymentPipeline/k8s
+cd k8s
 kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 ```
 ### Step 5: Automate with Ansible
 Navigate to the ansible/ directory and run the playbooks:
 ```bash
-cd ~/Git/AutoDeploymentPipeline/ansible
+cd ansible
 ```
 #### 5.1 Build and push Docker image:
 ```bash
-ansible-playbook playbooks/docker_build_push.yaml
+ansible-playbook playbooks/docker_build_push.yaml -e "dockerhub_username=YOUR_USERNAME"
 ```
 #### 5.2 Deploy to Kubernetes:
 ```bash

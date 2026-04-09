@@ -1,5 +1,7 @@
 - name: Deploy to Kubernetes
   hosts: localhost
+  vars:
+    project_dir: "{{ lookup('env', 'HOME') }}/AutoDeploymentPipeline"
   tasks:
     - name: Apply Kubernetes manifests
-      command: kubectl apply -f ~/Git/AutoDeploymentPipeline/k8s/
+      command: kubectl apply -f {{ project_dir }}/k8s/

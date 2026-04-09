@@ -7,9 +7,9 @@ This directory contains the Kubernetes manifests for deploying the sample web ap
 - kubectl configured to interact with your local Kubernetes cluster.
 
 
-## Minikube Inastaltion 
-there are many tools for running (Minikube) on local Devolopers machine, personaly I used (Podman Machine) for many usge local Kubernetes and Minikube are one of them: 
-- Install [Podman Machine](https://podman.io/docs/installation) Gidelines. 
+## Minikube Installation 
+There are many tools for running (Minikube) on local developers machine, personally I used (Podman Machine) for many usage local Kubernetes and Minikube are one of them: 
+- Install [Podman Machine](https://podman.io/docs/installation) Guidelines. 
 
 ## Directory Structure
    ```bash
@@ -33,9 +33,9 @@ Defines the Service to expose the sample web application via a LoadBalancer.
 1. Ensure your local Minikube is running.
 2. Navigate to the `k8s/` directory:
    ```bash
-   cd ~/Git/AutoDeploymentPipeline/k8s
+   cd k8s
    ```
-3. kubectl explean: 
+3. kubectl explained: 
    ```bash
    kubectl apply -f ${file_name}.yaml
    ```

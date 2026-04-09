@@ -11,7 +11,7 @@ This directory contains the sample web application code and the Dockerfile used 
 
 ## Directory Structure
    ```bash
-Decker/
+Docker/
 ├── app/
 |   ├── app.py
 |   ├── requirements.txt
@@ -29,9 +29,9 @@ The Dockerfile defines the steps to build a Docker image for the sample web appl
 
 1. Navigate to the `app/` directory:
    ```bash
-   cd ~/Git/AutoDeploymentPipeline/Docker/app
+   cd Docker/app
    ```
-#### Docker CLI explan: 
+#### Docker CLI explained: 
 - Build the Docker image
    ```bash
    docker build -t ${dockerhub-username}/${app-name}:${tag} .
@@ -46,4 +46,3 @@ The Dockerfile defines the steps to build a Docker image for the sample web appl
    ```
    -- {tag}: the version of your app
    -- (-p): port 
-   

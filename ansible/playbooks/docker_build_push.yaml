@@ -1,10 +1,13 @@
 - name: Build and push Docker image
   hosts: localhost
+  vars:
+    project_dir: "{{ lookup('env', 'HOME') }}/AutoDeploymentPipeline"
+    dockerhub_username: "{{ dockerhub_username }}"
   tasks:
     - name: Build Docker image
-      command: docker build -t ${dockerhub-username}/myapp:latest .
+      command: docker build -t {{ dockerhub_username }}/myapp:latest .
       args:
-        chdir: ~/Git/AutoDeploymentPipeline/Docker/app
+        chdir: "{{ project_dir }}/Docker/app"
 
     - name: Push Docker image to Docker Hub
-      command: docker push ${dockerhub-username}/myapp:latest
+      command: docker push {{ dockerhub_username }}/myapp:latest

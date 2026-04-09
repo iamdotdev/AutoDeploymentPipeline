@@ -1,9 +1,9 @@
 # Ansible Playbooks
 
 This directory contains Ansible playbooks for automating the Docker image build/push process and the deployment of the application to a Kubernetes cluster.
-## Ansible installtion 
+## Ansible installation 
 
-- offical Ansible [installation guide](https://docs.ansible.com/ansible/latest/installation_guide/index.html).
+- Official Ansible [installation guide](https://docs.ansible.com/ansible/latest/installation_guide/index.html).
 - Ansible check installation command: 
    ```bash
    ansible --version
@@ -36,10 +36,9 @@ This playbook automates the deployment of the sample web application to a Kubern
 
 1. Navigate to the `ansible/` directory:
    ```bash
-   cd ~/Git/AutoDeploymentPipeline/ansible
+   cd ansible
    ```
-2. Command Line explan:
+2. Command line explained:
    ```bash
    ansible-playbook playbooks/${file_name}.yaml
    ```
-   
